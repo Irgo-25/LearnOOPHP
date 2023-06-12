@@ -9,17 +9,25 @@ class transport
     private $tipe;
 
     // methode
-    protected function __construct($jenis, $merk, $tipe)
+    public function __construct($jenis, $merk, $tipe)
     {
 
         $this->jenis = $jenis;
         $this->merk = $merk;
         $this->tipe = $tipe;
     }
-    public function __destruct()
+    protected function callTransport()
     {
         echo "Ini Kendaraan : .{$this->jenis}, {$this->merk}, {$this->tipe}";
         echo "<br>";
     }
 }
-$akomodasi = new transport("Darar", "Astra", "Mobil");
+class calling extends transport
+{
+    public function message()
+    {
+        $this->callTransport();
+    }
+}
+$akomodasi = new calling("Darar", "Astra", "Mobil");
+$akomodasi->message();
