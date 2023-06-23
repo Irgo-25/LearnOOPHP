@@ -26,7 +26,8 @@ class calling extends transport
         $this->callTransport();
     }
 }
-
+$akomodasi = new calling("Darat", "Astra", "Mobil");
+$akomodasi->message();
 class employe
 {
     // property
@@ -49,5 +50,3 @@ class employe
     // inheritance overdrive
 
 }
-$akomodasi = new calling("Darar", "Astra", "Mobil");
-$akomodasi->message();

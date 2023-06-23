@@ -39,10 +39,6 @@ $darat1 = new transport("Motor", "Suzuki", "sport", 2018, "150cc");
 $darat2 = new transport("Mobil", "Daihatsu", "Biasa", 2020, "1000cc");
 $infoCetak = new Cetak();
 
-echo "transport :" . $darat1->gettransport();
-echo "<br>";
-echo "transport :" . $darat2->gettransport();
-echo "<br>";
 echo $infoCetak->printTransport($darat1);
 echo "<br>";
 echo $infoCetak->printTransport($darat2);
