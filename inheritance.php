@@ -3,7 +3,7 @@
 class transport
 {
     // Properties
-    private $jenis, $merk, $tipe;
+    public $jenis, $merk, $tipe;
 
     // methode
     public function __construct($jenis, $merk, $tipe)
@@ -13,40 +13,60 @@ class transport
         $this->merk = $merk;
         $this->tipe = $tipe;
     }
-    protected function callTransport()
+    public function callTransport()
     {
-        echo "Ini Kendaraan : .{$this->jenis}, {$this->merk}, {$this->tipe}. <a style='color:red;'>inheritance dan access metode protected</a>";
+        echo "Ini Kendaraan : .{$this->jenis}, {$this->merk}, {$this->tipe} .<a style='color:red;'>inheritance</a>";
         echo "<br>";
     }
 }
-class calling extends transport
+class darat extends transport
 {
     public function message()
     {
         $this->callTransport();
     }
 }
-$akomodasi = new calling("Darat", "Astra", "Mobil");
-$akomodasi->message();
-class employe
+class air extends transport
 {
-    // property
-    private $nama, $nim, $alamat;
-
-
-    // methode
-    protected function __construct($nama, $nim, $alamat)
+    public function message()
     {
-        $this->nama = $nama;
-        $this->nim = $nim;
-        $this->alamat = $alamat;
+        $this->callTransport();
     }
-
-    protected function getEmploye()
-    {
-        echo "Info Karyawan : .{$this->nama}, {$this->nim}, {$this->alamat}";
-    }
-
-    // inheritance overdrive
-
 }
+class udara extends transport
+{
+    public function message()
+    {
+        $this->callTransport();
+    }
+}
+$akomodasi = new darat("Darat", "Astra", "Mobil");
+$akomodasi->message();
+$akomodasi = new air("air", "hyundai", "Kapal Ferry");
+$akomodasi->message();
+$akomodasi = new udara("Udara", "Garuda", "Pesawat");
+$akomodasi->message();
+
+
+// class employe
+// {
+//     // property
+//     private $nama, $nim, $alamat;
+
+
+//     // methode
+//     protected function __construct($nama, $nim, $alamat)
+//     {
+//         $this->nama = $nama;
+//         $this->nim = $nim;
+//         $this->alamat = $alamat;
+//     }
+
+//     protected function getEmploye()
+//     {
+//         echo "Info Karyawan : .{$this->nama}, {$this->nim}, {$this->alamat}";
+//     }
+
+//     // inheritance overdrive
+
+// }
